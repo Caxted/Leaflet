@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leaflet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root {
+        --bg-color: #F8FBF8;
+        --bg-color-light: #FDFEFD;
+        --bg-color-dark: #F4F8F4;
+        --text-primary: #3A4F3A;
+        --text-secondary: #899889;
+        --accent-color: #4CAF50;
+        --accent-hover: #45a049;
+        --border-color: #E0E8E0;
+        --white: #FFFFFF;
+        --disabled-bg: #E8EDE8;
+        --health-bar-bg: #E0E8E0;
+        --health-green: #65C466;
+        --health-yellow: #FFD43A;
+        --health-red: #FF6B6B;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        color: var(--text-primary);
+        background: linear-gradient(-45deg, var(--bg-color), var(--bg-color-light), var(--bg-color-dark), var(--bg-color));
+        background-size: 400% 400%;
+        animation: animated-bg 30s ease infinite;
+      }
+      
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
+
+      /* UI Animations */
+      @keyframes animated-bg {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+      }
+      @keyframes slideUp {
+        from { transform: translateY(10px); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+      }
+       @keyframes button-glow {
+        0%, 100% { box-shadow: 0 0 8px rgba(76, 175, 80, 0.2); }
+        50% { box-shadow: 0 0 16px rgba(76, 175, 80, 0.4); }
+      }
+      @keyframes button-pulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+      }
+
+      .animate-fadeIn { animation: fadeIn 0.8s ease-in-out; }
+      .animate-slideUp { animation: slideUp 0.6s ease-in-out; }
+
+      /* Action Animations */
+      @keyframes waterDrop {
+        0% { transform: translateY(-20px) scale(1); opacity: 1; }
+        100% { transform: translateY(20px) scale(0.5); opacity: 0; }
+      }
+      @keyframes sunbeam {
+        0% { transform: translateY(-100%) skewX(-10deg); opacity: 0; }
+        20% { opacity: 0.2; }
+        80% { opacity: 0.2; }
+        100% { transform: translateY(100%) skewX(-10deg); opacity: 0; }
+      }
+       @keyframes nutrientRise {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-40px); opacity: 0; }
+      }
+      @keyframes snipEffect {
+        0% { transform: scale(0.5); opacity: 0; }
+        50% { transform: scale(1.2); opacity: 1; }
+        100% { transform: scale(1); opacity: 0; }
+      }
+      @keyframes health-shimmer {
+        0% { transform: translateX(-100%) skewX(-30deg); }
+        100% { transform: translateX(200%) skewX(-30deg); }
+      }
+      @keyframes particle-burst-keyframe {
+        0% { transform: scale(1); opacity: 1; }
+        100% { transform: scale(0) translate(var(--translateX), var(--translateY)); opacity: 0; }
+      }
+      @keyframes growth-burst-circle {
+        0% { transform: scale(0); opacity: 0.7; }
+        100% { transform: scale(1.5); opacity: 0; }
+      }
+      @keyframes growth-burst-particle {
+        0% { transform: scale(0.5) rotate(0deg); opacity: 1; }
+        100% { transform: scale(1) rotate(var(--rotate)) translate(var(--translate)) rotate(var(--rotate-end)); opacity: 0; }
+      }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
